@@ -1,25 +1,21 @@
 <?php
+require_once 'scripts/script.php';
 /**
  *
  */
 class hash
 {
-    //This is holding our matches
-    private $matches;
     private $availableAlgos;
-    private $response;
+    private $helpMessage = 'Returns a hash of the given string, hashed with the given algorithm';
 
-
-    function __construct($matches)
-    {
-        $this->matches = $matches;
+    function __construct($message, $matches, $waConnection)
+	{
         $this->availableAlgos = hash_algos();
-    }
+		$this->matches = $matches;
+		$this->message = $message;
+		$this->waConnection = $waConnection;
+	}
 
-    public function returnType()
-    {
-        return 'text';
-    }
     public function run()
     {
         if(!in_array(strtolower($this->matches[1]), $this->availableAlgos)) {
@@ -30,9 +26,9 @@ class hash
                 $this->response += $value . '\n';
             }
 
-            return $this->response;
+            return $this->send($this->message->number, $this->response);
         } else {
-            return hash($this->matches[1], $this->matches[2]);
+            return $this->send($this->message->number, hash($this->matches[1], $this->matches[2]));
         }
     }
 
