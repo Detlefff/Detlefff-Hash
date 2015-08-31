@@ -3,10 +3,10 @@ require_once 'scripts/script.php';
 /**
  *
  */
-class hash
+class hash extends Script
 {
-    private $availableAlgos;
-    private $helpMessage = 'Returns a hash of the given string, hashed with the given algorithm';
+    protected $availableAlgos;
+    protected $helpMessage = 'Returns a hash of the given string, hashed with the given algorithm';
 
     function __construct($message, $matches, $waConnection)
 	{
