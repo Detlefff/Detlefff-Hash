@@ -26,9 +26,9 @@ class hash extends Script
                 $this->response .= $value . "\n";
             }
 
-            return $this->send($this->message->number, $this->response);
+            return $this->send($this->response);
         } else {
-            return $this->send($this->message->number, hash($this->matches[1], $this->matches[2]));
+            return $this->send(hash($this->matches[1], $this->matches[2]));
         }
     }
 
