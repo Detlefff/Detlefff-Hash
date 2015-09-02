@@ -1,8 +1,4 @@
 <?php
-require_once 'scripts/script.php';
-/**
- *
- */
 class hash extends Script
 {
     protected $availableAlgos;
