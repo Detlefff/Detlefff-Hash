@@ -2,8 +2,8 @@
 class hash extends Script
 {
     protected $availableAlgos;
-    protected $helpMessage = "hash ALGORITHM STRING";
-    protected $description = 'Returns the hash of the given string, hashed with the given algorithm';
+    protected static $helpMessage = "hash ALGORITHM STRING";
+    protected static $description = 'Returns the hash of the given string, hashed with the given algorithm';
 
     function __construct($message, $matches, $waConnection)
 	{
